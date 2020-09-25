@@ -22,15 +22,22 @@ var server = expressConst.listen(port,()=>{
 });
 
 
-expressConst.delete("/delete/:id",(req,res)=>{
+expressConst.delete("/todo/delete/:id",(req,res)=>{
     handler.deleteTodo(req,res)
 });
 
-expressConst.get('/',(req,res)=>{
-    console.log("came here")
+expressConst.get('/todo',(req,res)=>{
     handler.getTodos(req,res);
 });
 
 expressConst.get("/todo/:id",(req,res)=>{
     handler.getTodo(req,res);
 });
+
+expressConst.post("/todo/add",(req,res)=>{
+    handler.addTodo(req,res);
+});
+
+expressConst.put("/todo/update/:id",(req,res)=>{
+    handler.updateTodo(req,res);
+})
